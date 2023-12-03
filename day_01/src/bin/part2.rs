@@ -1,21 +1,8 @@
 use std::collections::HashMap;
 
 fn main() {
-    let mut number_words:HashMap<String, i32> = HashMap::new();
-    number_words.insert(String::from("zero"), 0);
-    number_words.insert(String::from("one"), 1);
-    number_words.insert(String::from("two"), 2);
-    number_words.insert(String::from("three"), 3);
-    number_words.insert(String::from("four"), 4);
-    number_words.insert(String::from("five"), 5);
-    number_words.insert(String::from("six"), 6);
-    number_words.insert(String::from("seven"), 7);
-    number_words.insert(String::from("eight"), 8);
-    number_words.insert(String::from("nine"), 9);
-
-
     let input = include_str!("./input1.txt");
-    let output = part2(input, number_words);
+    let output = part2(input);
     dbg!(output);
 }
 
@@ -28,7 +15,18 @@ Requirements:
 - Sum the numeric values together from each string
 */
 
-fn part2(input: &str, num_map: HashMap<String, i32>) -> i32 {
+fn part2(input: &str) -> i32 {
+    let mut num_map:HashMap<String, i32> = HashMap::new();
+    num_map.insert(String::from("zero"), 0);
+    num_map.insert(String::from("one"), 1);
+    num_map.insert(String::from("two"), 2);
+    num_map.insert(String::from("three"), 3);
+    num_map.insert(String::from("four"), 4);
+    num_map.insert(String::from("five"), 5);
+    num_map.insert(String::from("six"), 6);
+    num_map.insert(String::from("seven"), 7);
+    num_map.insert(String::from("eight"), 8);
+    num_map.insert(String::from("nine"), 9);
     let mut nums = Vec::new();
     let mut result_nums = Vec::new();
     let mut lines: std::str::Lines<'_>= input.lines();
@@ -74,18 +72,6 @@ mod tests {
 
     #[test]
     fn test_part2() {
-        let mut number_words:HashMap<String, i32> = HashMap::new();
-        number_words.insert(String::from("zero"), 0);
-        number_words.insert(String::from("one"), 1);
-        number_words.insert(String::from("two"), 2);
-        number_words.insert(String::from("three"), 3);
-        number_words.insert(String::from("four"), 4);
-        number_words.insert(String::from("five"), 5);
-        number_words.insert(String::from("six"), 6);
-        number_words.insert(String::from("seven"), 7);
-        number_words.insert(String::from("eight"), 8);
-        number_words.insert(String::from("nine"), 9);
-
         // input
         let input = "two1nine
 eightwothree
@@ -95,7 +81,7 @@ xtwone3four
 zoneight234
 7pqrstsixteen";
 
-        let result = part2(input,number_words);
+        let result = part2(input);
         assert_eq!(result, 281);
     }
 }
