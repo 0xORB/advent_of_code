@@ -1,0 +1,1 @@
+cargo new [FILE_NAME] --vcs none

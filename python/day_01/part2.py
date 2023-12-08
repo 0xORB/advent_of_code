@@ -1,6 +1,6 @@
 def main():
     with open("input.txt", 'r') as f:
-        lines = f.readlines()[:5]
+        lines = f.readlines()
         lines = [line.replace("\n", "") for line in lines]
     f.close()
 
