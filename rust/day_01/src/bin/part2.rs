@@ -29,8 +29,8 @@ fn part2(input: &str) -> i32 {
     num_map.insert(String::from("nine"), 9);
     let mut nums = Vec::new();
     let mut result_nums = Vec::new();
-    let mut lines: std::str::Lines<'_>= input.lines();
-    for line in lines.next() {
+    let lines: std::str::Lines<'_>= input.lines();
+    for line in lines {
         // found_keys vector will be backwards, so the first value found will be at the end
         // and the last value found will be at the beginning
         let found_keys: Vec<_> = num_map.keys().filter(|&key| line.contains(key)).collect();
